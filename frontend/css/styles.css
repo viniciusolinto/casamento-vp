@@ -1,0 +1,244 @@
+/* ======================== */
+/* CONFIGURAÇÃO GLOBAL */
+/* ======================== */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9ff;
+    color: #333;
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    color: #0a2a63;
+}
+
+p {
+    font-size: 19px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Container padrão */
+section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* ======================== */
+/* HERO (IMAGEM DO TOPO) */
+/* ======================== */
+
+.hero {
+    width: 100%;
+    max-width: 1000px; /* mantém imagem bonita em telas grandes */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;           /* Mantém proporção da imagem */
+    display: block;
+    margin: 0 auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* ======================== */
+/* HISTÓRIA (FOTO DO CASAL) */
+/* ======================== */
+
+.historia {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* FOTO DO CASAL — EFEITO ESPECIAL REVOLUCIONÁRIO */
+.foto-casal {
+    width: 100%;
+    max-width: 380px;
+    display: block;
+    margin: 0 auto 25px;
+
+    /* Moldura arredondada elegante */
+    border-radius: 22px;
+
+    /* Borda dupla estilizada */
+    border: 4px solid #ffffff;
+    outline: 3px solid rgba(0, 47, 108, 0.20);
+
+    /* Brilho suave romântico */
+    box-shadow:
+        0 0 12px rgba(0, 47, 108, 0.25),
+        0 0 28px rgba(0, 47, 108, 0.18),
+        0 10px 25px rgba(0,0,0,0.15);
+
+    /* Efeito reflexo superior */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Reflexo suave brilhante */
+.foto-casal::after {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 70%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0.05)
+    );
+    transform: rotate(-10deg);
+    pointer-events: none;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+    .foto-casal {
+        max-width: 310px;
+        border-radius: 18px;
+    }
+}
+
+/* ======================== */
+/* PÁGINA INTERNA PRESENTES */
+/* ======================== */
+
+.pagina-oculta {
+    display: none;
+    animation: fadeIn 0.4s ease;
+    background: #ffffff;
+    padding: 40px 20px;
+    border-top: 3px solid #002F6C;
+}
+
+.voltar-btn {
+    margin-top: 30px;
+}
+
+/* Suave transição */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ======================== */
+/* CONTAGEM REGRESSIVA */
+/* ======================== */
+
+.countdown-section {
+    background: #FFFFFF;
+    padding: 60px 20px;
+}
+
+.countdown-title {
+    font-size: 42px;
+    letter-spacing: 8px;
+    color: #002F6C;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.time-box {
+    background: #FFFFFF;
+    padding: 25px 35px;
+    border-radius: 18px;
+    text-align: center;
+    min-width: 120px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.time-box span {
+    font-size: 50px;
+    font-weight: 700;
+    color: #002F6C;
+}
+
+.time-box p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #002F6C;
+    letter-spacing: 2px;
+}
+
+/* ======================== */
+/* FRASE BÍBLICA */
+/* ======================== */
+
+.verse {
+    background: #f0f8ff;
+    padding: 40px 20px;
+    font-size: 22px;
+    font-style: italic;
+}
+
+/* ======================== */
+/* LOCAIS */
+/* ======================== */
+
+.local p {
+    margin: 5px 0;
+}
+
+/* ======================== */
+/* BOTÕES PADRÃO */
+/* ======================== */
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #002F6C;
+    color: white;
+    border-radius: 35px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.purple {
+    background: #002F6C;
+}
+
+.blue {
+    background: #002F6C;
+}
+
+/* ======================== */
+/* LISTA DE PRESENTES */
+/* ======================== */
+
+.gift-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+@media (min-width: 600px) {
+    .gift-options {
+        flex-direction: row;
+        justify-content: center;
+    }
+}

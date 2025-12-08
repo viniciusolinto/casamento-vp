@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius & Paloma</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="hero">
+        <img src="img/foto.png" alt="Convite do Casamento">
+    </header>
+
+    <!-- História -->
+    <section class="historia">
+        <img src="img/casal.jpg" alt="Foto do Casal" class="foto-casal">
+
+        <h2>Nossa História</h2>
+
+        <p>
+            Eu e Paloma somos primos distantes e brincávamos quando criança no sítio Várzea.
+            Depois passei muitos anos sem a ver e, enfim, mudamos os rumos, amizades...  
+            Mas em 2024 eu fui convidado para participar de um retiro em meio ao carnaval.  
+            Fomos, curtimos muito na presença do Senhor, foi um momento muito especial e 
+            que a partir daquela viagem, não conseguimos parar de se falar pelo WhatsApp.
+            <br><br>
+            Nossa relação foi toda a distância, porém, em 2025 a gente começou a se ver mais vezes 
+            e a nutrir a vontade de não apenas se casar, mas servir um só a Jesus Cristo e 
+            a todas as adversidades que a vida nos colocar, porque estamos nos unindo numa só carne.
+            <br><br>
+            Então essa é a nossa história! Obrigado por estar lendo essa mensagem!
+        </p>
+    </section>
+
+    <!-- Contagem Regressiva -->
+    <section class="countdown-section">
+        <h2 class="countdown-title"><strong>CONTAGEM REGRESSIVA</strong></h2>
+
+        <div id="countdown" class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>Dias</p>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Horas</p>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minutos</p>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Segundos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verso -->
+    <section class="verse">
+        <p>"Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu ninguém separe." — Mateus 19:6</p>
+    </section>
+
+    <!-- Local da cerimônia -->
+    <section class="local">
+        <h2>Cerimônia</h2>
+        <p><strong>Capela Nossa Senhora de Fátima</strong></p>
+        <p>Rua 13 de Maio, Pau dos Ferros - RN</p>
+        <p>CEP: 59900-000</p>
+
+        <a class="btn" href="https://www.google.com/maps?q=Capela+Nossa+Senhora+de+Fátima+Pau+dos+Ferros+RN" target="_blank">
+            Ver no Google Maps
+        </a>
+    </section>
+
+    <!-- Local da recepção -->
+    <section class="local">
+        <h2>Pós-Cerimônia</h2>
+        <p><strong>Restaurante Brito's Bistrô</strong></p>
+        <p>Rua Carloto Távora, Pau dos Ferros - RN</p>
+        <p>CEP: 59900-000</p>
+
+        <a class="btn" href="https://maps.app.goo.gl/q4XNAddVYcHR5up59" target="_blank">
+            Ver no Google Maps
+        </a>
+    </section>
+
+    <!-- Lista de presentes -->
+    <section class="presentes-section">
+    <button class="btn blue" onclick="abrirPresentes()">Ver Lista de Presentes</button>
+</section>
+
+<!-- Página interna de presentes (escondida por padrão) -->
+<section id="pagina-presentes" class="pagina-oculta">
+
+    <h2>Lista de Presentes</h2>
+    <p>Escolha um presente ou faça um PIX do valor que desejar.</p>
+
+    <div class="gift-options">
+        <a class="btn blue" href="pix.html">Fazer PIX</a>
+        <a class="btn blue" href="#">Presente 1</a>
+        <a class="btn blue" href="#">Presente 2</a>
+        <a class="btn blue" href="#">Presente 3</a>
+    </div>
+
+    <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>
+</section>
+
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
