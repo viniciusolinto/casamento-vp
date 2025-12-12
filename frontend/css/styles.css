@@ -23,86 +23,100 @@ a {
     text-decoration: none;
 }
 
-/* Container padrão */
 section {
     text-align: center;
     padding: 40px 20px;
 }
 
 /* ======================== */
-/* HERO - IMAGEM DO CONVITE */
+/* HERO RESPONSIVO MODERNO */
 /* ======================== */
 
 .hero {
     width: 100%;
-    height: 380px; /* altura ideal para desktop */
-    background-image: url("../img/foto.png");
-    background-size: contain;   /* mostra a imagem inteira */
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: #d4e0f5;  /* cor azul suave por trás da imagem */
-    padding-top: 25px;
-
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .hero {
-        height: 320px;           /* aumenta ou diminui conforme sua imagem */
-        background-size: contain;
-        background-position: center top;
-        padding-top: 20px;
-    }
-}
-
-
-/* ======================== */
-/* HERO AJUSTADO RESPONSIVO */
-/* ======================== */
-
-.hero {
-    width: 100%;
-    height: 480px; /* altura padrão desktop */
-    background-image: url("../img/foto.png");
-    background-size: contain;   /* mostra a imagem INTEIRA sem cortar */
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-color: #d4e2f4; /* azul bebê suave atrás da imagem */
-    
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-
+    padding: 20px 0;
+    background: linear-gradient(to bottom, #dfe9f7, #f9f9ff);
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    padding-top: 20px;
 }
 
-/* CELULAR */
-@media (max-width: 600px) {
-    .hero {
-        height: 420px;         /* aumenta ou reduz a altura */
-        background-position: center top;
-        padding-top: 10px;
+.convite-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;  /* limite no desktop */
+    margin: 0 auto;
+}
+
+/* A IMAGEM DO CONVITE */
+.convite-img {
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+
+    /* sombra suave elegante */
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.15),
+        0 12px 35px rgba(0,0,0,0.08);
+
+    /* margem para respirar */
+    display: block;
+}
+
+/* TEXTO SOBRE A IMAGEM */
+.convite-info {
+    position: absolute;
+    bottom: 18px;
+    width: 100%;
+    text-align: center;
+    color: #002F6C;
+    font-weight: 700;
+    text-shadow: 0 3px 8px rgba(255,255,255,0.6);
+}
+
+/* Nome do casal */
+.convite-info h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+/* Data */
+.convite-info .data {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ======================== */
+/* MOBILE */
+/* ======================== */
+
+@media (max-width: 500px) {
+    .convite-info h1 {
+        font-size: 22px;
+    }
+
+    .convite-info .data {
+        font-size: 16px;
     }
 }
 
-/* TELAS MENORES AINDA */
-@media (max-width: 400px) {
-    .hero {
-        height: 380px;
-        background-size: 95%; /* ajusta para não estourar nas laterais */
+/* ======================== */
+/* TELAS MUITO PEQUENAS */
+/* ======================== */
+
+@media (max-width: 360px) {
+    .convite-info h1 {
+        font-size: 18px;
+    }
+    .convite-info .data {
+        font-size: 14px;
     }
 }
 
 
 /* ======================== */
-/* HISTÓRIA (FOTO DO CASAL) */
+/* HISTÓRIA */
 /* ======================== */
 
 .historia {
@@ -110,32 +124,25 @@ section {
     margin: 0 auto;
 }
 
-/* FOTO DO CASAL — EFEITO ESPECIAL REVOLUCIONÁRIO */
 .foto-casal {
     width: 100%;
     max-width: 380px;
-    display: block;
     margin: 0 auto 25px;
+    display: block;
 
-    /* Moldura arredondada elegante */
+    /* Moldura elegante */
     border-radius: 22px;
-
-    /* Borda dupla estilizada */
     border: 4px solid #ffffff;
     outline: 3px solid rgba(0, 47, 108, 0.20);
-
-    /* Brilho suave romântico */
     box-shadow:
         0 0 12px rgba(0, 47, 108, 0.25),
         0 0 28px rgba(0, 47, 108, 0.18),
         0 10px 25px rgba(0,0,0,0.15);
 
-    /* Efeito reflexo superior */
     position: relative;
     overflow: hidden;
 }
 
-/* Reflexo suave brilhante */
 .foto-casal::after {
     content: "";
     position: absolute;
@@ -152,36 +159,11 @@ section {
     pointer-events: none;
 }
 
-/* Responsividade */
 @media (max-width: 500px) {
     .foto-casal {
         max-width: 310px;
-        border-radius: 18px;
     }
 }
-
-/* ======================== */
-/* PÁGINA INTERNA PRESENTES */
-/* ======================== */
-
-.pagina-oculta {
-    display: none;
-    animation: fadeIn 0.4s ease;
-    background: #ffffff;
-    padding: 40px 20px;
-    border-top: 3px solid #002F6C;
-}
-
-.voltar-btn {
-    margin-top: 30px;
-}
-
-/* Suave transição */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
 
 /* ======================== */
 /* CONTAGEM REGRESSIVA */
@@ -250,7 +232,7 @@ section {
 }
 
 /* ======================== */
-/* BOTÕES PADRÃO */
+/* BOTÕES */
 /* ======================== */
 
 .btn {
@@ -268,17 +250,22 @@ section {
     opacity: 0.85;
 }
 
-.purple {
-    background: #002F6C;
-}
-
+.purple,
 .blue {
     background: #002F6C;
 }
 
 /* ======================== */
-/* LISTA DE PRESENTES */
+/* PRESENTES – PÁGINA INTERNA */
 /* ======================== */
+
+.pagina-oculta {
+    display: none;
+    animation: fadeIn 0.4s ease;
+    background: #ffffff;
+    padding: 40px 20px;
+    border-top: 3px solid #002F6C;
+}
 
 .gift-options {
     display: flex;
@@ -293,4 +280,13 @@ section {
         flex-direction: row;
         justify-content: center;
     }
+}
+
+.voltar-btn {
+    margin-top: 30px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
