@@ -1,6 +1,6 @@
-/* ======================== */
-/* CONFIGURAÇÃO GLOBAL */
-/* ======================== */
+/* ========================
+   CONFIGURAÇÃO GLOBAL
+======================== */
 
 body {
     margin: 0;
@@ -28,24 +28,9 @@ section {
     padding: 40px 20px;
 }
 
-/* ======================== */
-/* HERO RESPONSIVO MODERNO */
-/* ======================== */
-
-.hero {
-    width: 100%;
-    padding: 20px 0;
-    background: linear-gradient(to bottom, #dfe9f7, #f9f9ff);
-    display: flex;
-    justify-content: center;
-}
-
-.convite-container {
-    position: relative;
-    width: 100%;
-    max-width: 480px;  /* limite no desktop */
-    margin: 0 auto;
-}
+/* ========================
+   HERO — CONVITE
+======================== */
 
 /* A IMAGEM DO CONVITE */
 .convite-img {
@@ -73,51 +58,10 @@ section {
     text-shadow: 0 3px 8px rgba(255,255,255,0.6);
 }
 
-/* Nome do casal */
-.convite-info h1 {
-    margin: 0;
-    font-size: 26px;
-    letter-spacing: 2px;
-}
 
-/* Data */
-.convite-info .data {
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-/* ======================== */
-/* MOBILE */
-/* ======================== */
-
-@media (max-width: 500px) {
-    .convite-info h1 {
-        font-size: 22px;
-    }
-
-    .convite-info .data {
-        font-size: 16px;
-    }
-}
-
-/* ======================== */
-/* TELAS MUITO PEQUENAS */
-/* ======================== */
-
-@media (max-width: 360px) {
-    .convite-info h1 {
-        font-size: 18px;
-    }
-    .convite-info .data {
-        font-size: 14px;
-    }
-}
-
-
-/* ======================== */
-/* HISTÓRIA */
-/* ======================== */
+/* ========================
+   HISTÓRIA — FOTO DO CASAL
+======================== */
 
 .historia {
     max-width: 800px;
@@ -126,14 +70,14 @@ section {
 
 .foto-casal {
     width: 100%;
-    max-width: 380px;
-    margin: 0 auto 25px;
-    display: block;
-
-    /* Moldura elegante */
+    max-width: 360px;
     border-radius: 22px;
+    display: block;
+    margin: 0 auto 25px;
+
     border: 4px solid #ffffff;
     outline: 3px solid rgba(0, 47, 108, 0.20);
+
     box-shadow:
         0 0 12px rgba(0, 47, 108, 0.25),
         0 0 28px rgba(0, 47, 108, 0.18),
@@ -161,13 +105,13 @@ section {
 
 @media (max-width: 500px) {
     .foto-casal {
-        max-width: 310px;
+        max-width: 300px;
     }
 }
 
-/* ======================== */
-/* CONTAGEM REGRESSIVA */
-/* ======================== */
+/* ========================
+   CONTAGEM REGRESSIVA
+======================== */
 
 .countdown-section {
     background: #FFFFFF;
@@ -175,11 +119,11 @@ section {
 }
 
 .countdown-title {
-    font-size: 42px;
-    letter-spacing: 8px;
+    font-size: 38px;
+    letter-spacing: 6px;
     color: #002F6C;
     font-weight: 300;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .countdown {
@@ -190,11 +134,11 @@ section {
 }
 
 .time-box {
-    background: #FFFFFF;
+    background: white;
     padding: 25px 35px;
     border-radius: 18px;
-    text-align: center;
     min-width: 120px;
+    text-align: center;
     box-shadow: 0 3px 8px rgba(0,0,0,0.12);
 }
 
@@ -212,9 +156,9 @@ section {
     letter-spacing: 2px;
 }
 
-/* ======================== */
-/* FRASE BÍBLICA */
-/* ======================== */
+/* ========================
+   FRASE BÍBLICA
+======================== */
 
 .verse {
     background: #f0f8ff;
@@ -223,17 +167,17 @@ section {
     font-style: italic;
 }
 
-/* ======================== */
-/* LOCAIS */
-/* ======================== */
+/* ========================
+   LOCAL DA CERIMÔNIA
+======================== */
 
 .local p {
     margin: 5px 0;
 }
 
-/* ======================== */
-/* BOTÕES */
-/* ======================== */
+/* ========================
+   BOTÕES
+======================== */
 
 .btn {
     display: inline-block;
@@ -242,7 +186,7 @@ section {
     color: white;
     border-radius: 35px;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     transition: 0.25s;
 }
 
@@ -250,14 +194,9 @@ section {
     opacity: 0.85;
 }
 
-.purple,
-.blue {
-    background: #002F6C;
-}
-
-/* ======================== */
-/* PRESENTES – PÁGINA INTERNA */
-/* ======================== */
+/* ========================
+   PÁGINA INTERNA — PRESENTES
+======================== */
 
 .pagina-oculta {
     display: none;
@@ -265,21 +204,6 @@ section {
     background: #ffffff;
     padding: 40px 20px;
     border-top: 3px solid #002F6C;
-}
-
-.gift-options {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    margin: 20px auto 0;
-}
-
-@media (min-width: 600px) {
-    .gift-options {
-        flex-direction: row;
-        justify-content: center;
-    }
 }
 
 .voltar-btn {
@@ -291,91 +215,9 @@ section {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ======== GRID DOS PRESENTES ======== */
-.gift-grid {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 10px;
-}
-
-.gift-card {
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-    text-align: center;
-    transition: 0.3s;
-}
-
-.gift-card:hover {
-    transform: translateY(-5px);
-}
-
-.gift-card img {
-    width: 100%;
-    border-radius: 14px;
-    margin-bottom: 15px;
-}
-
-.gift-card h3 {
-    font-size: 22px;
-    color: #002F6C;
-    margin-bottom: 10px;
-}
-
-.gift-card .descricao {
-    font-size: 16px;
-    color: #333;
-}
-
-.gift-card .preco {
-    font-size: 20px;
-    font-weight: 700;
-    color: #002F6C;
-    margin: 12px 0;
-}
-
-/* ======== MODAL DO PIX ======== */
-.pix-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.pix-box {
-    background: #fff;
-    padding: 30px 25px;
-    border-radius: 18px;
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
-.pix-chave-box {
-    background: #eef4ff;
-    padding: 12px;
-    border-radius: 12px;
-    margin: 15px 0;
-}
-
-/* ================================ */
-/* LISTA DE PRESENTES ESTILO CASAR.COM */
-/* ================================ */
-
-.pagina-oculta {
-    display: none;
-    animation: fadeIn 0.4s ease;
-    background: #ffffff;
-    padding: 40px 20px;
-    border-top: 3px solid #002F6C;
-}
+/* ========================
+   LISTA DE PRESENTES — ESTILO CASAR.COM
+======================== */
 
 .gift-grid {
     display: grid;
@@ -383,42 +225,42 @@ section {
     gap: 25px;
     max-width: 900px;
     margin: 30px auto;
-    padding: 10px;
 }
 
 .gift-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 18px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-    text-align: center;
-    transition: 0.2s;
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    transition: 0.3s;
 }
 
 .gift-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .gift-card img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 15px;
     margin-bottom: 12px;
 }
 
 .gift-card h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
     color: #002F6C;
+    margin-bottom: 5px;
 }
 
 .gift-card .preco {
     font-size: 18px;
-    margin-bottom: 10px;
-    color: #444;
+    font-weight: 600;
+    color: #0a2a63;
+    margin-bottom: 15px;
 }
 
-/* Botão voltar */
-.voltar-btn {
-    margin-top: 30px;
+.presentear {
+    width: 100%;
 }
 
+/* ========================
+   FIM DO CSS
+======================== */

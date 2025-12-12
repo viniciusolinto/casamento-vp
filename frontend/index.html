@@ -9,41 +9,47 @@
 
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- ============================== -->
+    <!-- CABEÇALHO / CONVITE -->
+    <!-- ============================== -->
     <header class="hero">
-    <div class="convite-container">
-        <img src="img/foto.png" alt="Convite do Casamento" class="convite-img">
-
-        <div class="convite-info">   
+        <div class="convite-container">
+            <img src="img/foto.png" alt="Convite do Casamento" class="convite-img">
         </div>
-    </div>
-</header>
+    </header>
 
-    <!-- História -->
+
+    <!-- ============================== -->
+    <!-- NOSSA HISTÓRIA -->
+    <!-- ============================== -->
     <section class="historia">
         <img src="img/casal.jpg" alt="Foto do Casal" class="foto-casal">
 
         <h2>Nossa História</h2>
 
         <p>
-            Eu e Paloma somos primos distantes e brincávamos quando criança no sítio Várzea.
-            Depois passei muitos anos sem a ver e, enfim, mudamos os rumos, amizades...  
-            Mas em 2024 eu fui convidado para participar de um retiro em meio ao carnaval.  
-            Fomos, curtimos muito na presença do Senhor, foi um momento muito especial e 
-            que a partir daquela viagem, não conseguimos parar de se falar pelo WhatsApp.
+            Eu e Paloma somos primos distantes e, quando crianças, brincávamos no sítio Várzea. 
+            A vida nos levou por caminhos diferentes, e muitos anos se passaram sem nos vermos…  
+            até que, em 2024, Deus nos surpreendeu.
             <br><br>
-            Nossa relação foi toda a distância, porém, em 2025 a gente começou a se ver mais vezes 
-            e a nutrir a vontade de não apenas se casar, mas servir um só a Jesus Cristo e 
-            a todas as adversidades que a vida nos colocar, porque estamos nos unindo numa só carne.
+            Ela me convidou para um retiro espiritual durante o Carnaval — e aquele final de semana mudou tudo. 
+            Vivemos dias intensos na presença do Senhor, e, a partir dali, não conseguimos mais ficar sem conversar.
             <br><br>
-            Então essa é a nossa história! Obrigado por estar lendo essa mensagem!
+            Nossa relação nasceu à distância, mas cresceu forte, sincera e cheia da graça de Deus. 
+            Em 2025, começamos a nos ver com mais frequência e entendemos que o Senhor estava nos unindo para algo maior.
+            <br><br>
+            Hoje seguimos juntos, caminhando em uma só carne, desejando servir a Cristo e enfrentar cada etapa da vida lado a lado.
+            <br><br>
+            Essa é a nossa história — simples, inesperada, escrita por Deus.
         </p>
     </section>
 
-    <!-- Contagem Regressiva -->
+
+    <!-- ============================== -->
+    <!-- CONTAGEM REGRESSIVA -->
+    <!-- ============================== -->
     <section class="countdown-section">
         <h2 class="countdown-title">CONTAGEM REGRESSIVA</h2>
-
 
         <div id="countdown" class="countdown">
             <div class="time-box">
@@ -68,12 +74,18 @@
         </div>
     </section>
 
-    <!-- Verso -->
+
+    <!-- ============================== -->
+    <!-- VERSÍCULO -->
+    <!-- ============================== -->
     <section class="verse">
         <p><strong>"Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu ninguém separe." — Mateus 19:6</strong></p>
     </section>
 
-    <!-- Local da cerimônia -->
+
+    <!-- ============================== -->
+    <!-- LOCAL DA CERIMÔNIA -->
+    <!-- ============================== -->
     <section class="local">
         <h2>Cerimônia</h2>
         <p><strong>Capela Nossa Senhora de Fátima</strong></p>
@@ -85,7 +97,10 @@
         </a>
     </section>
 
-    <!-- Local da recepção -->
+
+    <!-- ============================== -->
+    <!-- LOCAL DA RECEPÇÃO -->
+    <!-- ============================== -->
     <section class="local">
         <h2>Pós-Cerimônia</h2>
         <p><strong>Restaurante Brito's Bistrô</strong></p>
@@ -97,50 +112,81 @@
         </a>
     </section>
 
-    <section class="presentes-section">
+
+    <!-- BOTÃO PARA ABRIR A LISTA -->
+<section class="presentes-section">
     <button class="btn blue" onclick="abrirPresentes()">Ver Lista de Presentes</button>
 </section>
 
-
+<!-- ======== LISTA DE PRESENTES ======== -->
 <section id="pagina-presentes" class="pagina-oculta">
 
     <h2>Lista de Presentes</h2>
-    <p>Escolha um presente especial para nos ajudar a construir nossa vida juntos 💙</p>
+    <p>Escolha um presente e contribua com o valor sugerido via PIX 💙</p>
 
     <div class="gift-grid">
+
+        <!-- Presente 1 -->
         <div class="gift-card">
             <img src="img/presente1.jpg" alt="Presente 1">
             <h3>Conjunto de Toalhas</h3>
             <p class="preco">R$ 120,00</p>
-            <button class="btn presentear">Presentear</button>
+            <button class="btn" onclick="presentear('Conjunto de Toalhas', 120)">Presentear</button>
         </div>
 
+        <!-- Presente 2 -->
         <div class="gift-card">
             <img src="img/presente2.jpg" alt="Presente 2">
             <h3>Jogo de Panelas</h3>
             <p class="preco">R$ 230,00</p>
-            <button class="btn presentear">Presentear</button>
+            <button class="btn" onclick="presentear('Jogo de Panelas', 230)">Presentear</button>
         </div>
 
+        <!-- Presente 3 -->
         <div class="gift-card">
             <img src="img/presente3.jpg" alt="Presente 3">
             <h3>AirFryer</h3>
             <p class="preco">R$ 380,00</p>
-            <button class="btn presentear">Presentear</button>
+            <button class="btn" onclick="presentear('AirFryer', 380)">Presentear</button>
         </div>
 
+        <!-- PIX Livre -->
         <div class="gift-card">
-            <img src="img/presente4.jpg" alt="Presente 4">
-            <h3>Pix Livre</h3>
+            <img src="img/pix.jpg" alt="PIX Livre">
+            <h3>PIX Livre</h3>
             <p class="preco">Qualquer valor</p>
-            <button class="btn" onclick="location.href='pix.html'">Fazer PIX</button>
+            <button class="btn" onclick="presentear('Pix Livre', 0)">Fazer PIX</button>
         </div>
+
     </div>
 
     <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>
 </section>
 
+<!-- ======== MODAL PIX ======== -->
+<div id="pix-modal" class="pix-modal">
 
-<script src="js/main.js"></script>
+    <div class="pix-box">
+
+        <h3 id="pix-titulo">Título</h3>
+        <p id="pix-valor"></p>
+
+        <p><strong>Chave PIX:</strong></p>
+
+        <!-- SUA CHAVE PIX AQUI -->
+        <p id="pix-chave" class="pix-chave">e218f0f0-e484-405a-b489-9e264e9cd631</p>
+
+        <button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
+        <button class="btn purple fechar" onclick="fecharModal()">Fechar</button>
+    </div>
+
+</div>
+
+
+        <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>
+    </section>
+
+
+    <script src="js/main.js"></script>
 </body>
 </html>

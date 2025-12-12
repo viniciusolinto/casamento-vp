@@ -1,7 +1,6 @@
 /* ===============================
-   FUNÇÕES DE PIX
+   FORMATAÇÃO DE VALOR EM REAL
 ================================*/
-
 function formatarReal(valor) {
     return valor.toLocaleString("pt-BR", {
         style: "currency",
@@ -9,50 +8,37 @@ function formatarReal(valor) {
     });
 }
 
-function presentear(nome, valor) {
-    document.getElementById("pix-titulo").textContent = nome;
 
-    if (valor === "livre") {
-        document.getElementById("pix-valor").textContent = "Qualquer valor 💙";
-    } else {
-        document.getElementById("pix-valor").textContent = "Valor sugerido: " + formatarReal(valor);
-    }
-
-    // Sua chave PIX
-    document.getElementById("pix-chave").textContent = "e218f0f0-e484-405a-b489-9e264e9cd631";
-
-    document.getElementById("pix-modal").style.display = "flex";
-}
-
-function fecharModal() {
-    document.getElementById("pix-modal").style.display = "none";
-}
-
+/* ===============================
+   FUNÇÃO PARA COPIAR PIX
+================================*/
 function copiarPix() {
     const chave = document.getElementById("pix-chave").textContent.trim();
 
     navigator.clipboard.writeText(chave)
-      .then(() => alert("Chave PIX copiada!"))
-      .catch(() => alert("Erro ao copiar, copie manualmente."));
+      .then(() => {
+        alert("Chave PIX copiada! 💙");
+      })
+      .catch(() => {
+        alert("Não foi possível copiar automaticamente. Copie manualmente: " + chave);
+      });
 }
 
 
 /* ===============================
    CONTAGEM REGRESSIVA
 ================================*/
-
 function iniciarContagem() {
-
-    // DEFINA A DATA DO CASAMENTO AQUI
     const dataCasamento = new Date("2026-03-28T17:00:00").getTime();
 
     setInterval(() => {
-        const agora = new Date().getTime();
+        const agora = Date.now();
         const distancia = dataCasamento - agora;
 
         if (distancia <= 0) {
-            document.getElementById("countdown").innerHTML =
-                "<h3>O grande dia chegou! 💙</h3>";
+            document.getElementById("countdown").innerHTML = `
+                <h3>O grande dia chegou! 💙</h3>
+            `;
             return;
         }
 
@@ -73,19 +59,34 @@ iniciarContagem();
 
 
 /* ===============================
-   MOSTRAR / FECHAR LISTA DE PRESENTES
+   FUNÇÕES PARA ABRIR / FECHAR LISTA
 ================================*/
-
 function abrirPresentes() {
     document.getElementById("pagina-presentes").style.display = "block";
-
-    window.scrollTo({
-        top: document.getElementById("pagina-presentes").offsetTop,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function fecharPresentes() {
     document.getElementById("pagina-presentes").style.display = "none";
     window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+/* ===============================
+   MODAL DE PIX POR PRESENTE
+================================*/
+function presentear(nome, valor) {
+    document.getElementById("pix-titulo").textContent = nome;
+
+    if (valor > 0) {
+        document.getElementById("pix-valor").textContent = "Valor sugerido: " + formatarReal(valor);
+    } else {
+        document.getElementById("pix-valor").textContent = "Qualquer valor ❤️";
+    }
+
+    document.getElementById("pix-modal").style.display = "flex";
+}
+
+function fecharModal() {
+    document.getElementById("pix-modal").style.display = "none";
 }
