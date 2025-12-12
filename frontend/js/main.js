@@ -9,28 +9,40 @@ function formatarReal(valor) {
     });
 }
 
-function selecionarValor(v) {
-    const el = document.getElementById("valor-escolhido");
-    el.textContent = formatarReal(v);
+function presentear(nome, valor) {
+    document.getElementById("pix-titulo").textContent = nome;
+
+    if (valor === "livre") {
+        document.getElementById("pix-valor").textContent = "Qualquer valor 💙";
+    } else {
+        document.getElementById("pix-valor").textContent = "Valor sugerido: " + formatarReal(valor);
+    }
+
+    // Sua chave PIX
+    document.getElementById("pix-chave").textContent = "e218f0f0-e484-405a-b489-9e264e9cd631";
+
+    document.getElementById("pix-modal").style.display = "flex";
+}
+
+function fecharModal() {
+    document.getElementById("pix-modal").style.display = "none";
 }
 
 function copiarPix() {
     const chave = document.getElementById("pix-chave").textContent.trim();
 
     navigator.clipboard.writeText(chave)
-      .then(() => {
-        alert("Chave Pix copiada! Agora é só colar no app do seu banco. 💜");
-      })
-      .catch(() => {
-        alert("Não foi possível copiar automaticamente. Copie manualmente: " + chave);
-      });
+      .then(() => alert("Chave PIX copiada!"))
+      .catch(() => alert("Erro ao copiar, copie manualmente."));
 }
+
 
 /* ===============================
    CONTAGEM REGRESSIVA
 ================================*/
 
 function iniciarContagem() {
+
     // DEFINA A DATA DO CASAMENTO AQUI
     const dataCasamento = new Date("2026-03-28T17:00:00").getTime();
 
@@ -39,9 +51,8 @@ function iniciarContagem() {
         const distancia = dataCasamento - agora;
 
         if (distancia <= 0) {
-            document.getElementById("countdown").innerHTML = `
-                <h3>O grande dia chegou! 💙</h3>
-            `;
+            document.getElementById("countdown").innerHTML =
+                "<h3>O grande dia chegou! 💙</h3>";
             return;
         }
 
@@ -60,13 +71,18 @@ function iniciarContagem() {
 
 iniciarContagem();
 
+
 /* ===============================
    MOSTRAR / FECHAR LISTA DE PRESENTES
 ================================*/
 
 function abrirPresentes() {
     document.getElementById("pagina-presentes").style.display = "block";
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+
+    window.scrollTo({
+        top: document.getElementById("pagina-presentes").offsetTop,
+        behavior: "smooth"
+    });
 }
 
 function fecharPresentes() {

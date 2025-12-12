@@ -97,27 +97,48 @@
         </a>
     </section>
 
-    <!-- Lista de presentes -->
     <section class="presentes-section">
     <button class="btn blue" onclick="abrirPresentes()">Ver Lista de Presentes</button>
 </section>
 
-<!-- Página interna de presentes (escondida por padrão) -->
+
 <section id="pagina-presentes" class="pagina-oculta">
 
     <h2>Lista de Presentes</h2>
-    <p>Escolha um presente ou faça um PIX do valor que desejar.</p>
+    <p>Escolha um presente especial para nos ajudar a construir nossa vida juntos 💙</p>
 
-    <div class="gift-options">
-        <a class="btn blue" href="pix.html">Fazer PIX</a>
-        <a class="btn blue" href="#">Presente 1</a>
-        <a class="btn blue" href="#">Presente 2</a>
-        <a class="btn blue" href="#">Presente 3</a>
+    <div class="gift-grid">
+        <div class="gift-card">
+            <img src="img/presente1.jpg" alt="Presente 1">
+            <h3>Conjunto de Toalhas</h3>
+            <p class="preco">R$ 120,00</p>
+            <button class="btn presentear">Presentear</button>
+        </div>
+
+        <div class="gift-card">
+            <img src="img/presente2.jpg" alt="Presente 2">
+            <h3>Jogo de Panelas</h3>
+            <p class="preco">R$ 230,00</p>
+            <button class="btn presentear">Presentear</button>
+        </div>
+
+        <div class="gift-card">
+            <img src="img/presente3.jpg" alt="Presente 3">
+            <h3>AirFryer</h3>
+            <p class="preco">R$ 380,00</p>
+            <button class="btn presentear">Presentear</button>
+        </div>
+
+        <div class="gift-card">
+            <img src="img/presente4.jpg" alt="Presente 4">
+            <h3>Pix Livre</h3>
+            <p class="preco">Qualquer valor</p>
+            <button class="btn" onclick="location.href='pix.html'">Fazer PIX</button>
+        </div>
     </div>
 
     <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>
 </section>
-
 
 
 <script src="js/main.js"></script>
