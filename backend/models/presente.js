@@ -1,12 +1,33 @@
 import mongoose from "mongoose";
 
 const PresenteSchema = new mongoose.Schema({
-  nome: String,
-  preco: Number,
-  imagem: String,
-  comprado: {
+  nome: {
+    type: String,
+    required: true
+  },
+
+  preco: {
+    type: Number,
+    required: true
+  },
+
+  imagem: {
+    type: String,
+    required: true
+  },
+
+  linkLoja: {
+    type: String,
+    required: true
+  },
+
+  disponivel: {
     type: Boolean,
-    default: false
+    default: true
+  },
+
+  compradoEm: {
+    type: Date
   }
 });
 

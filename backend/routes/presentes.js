@@ -3,25 +3,36 @@ import Presente from "../models/presente.js";
 
 const router = express.Router();
 
-/* LISTAR PRESENTES DISPONÍVEIS */
+/**
+ * LISTAR PRESENTES
+ */
 router.get("/", async (req, res) => {
-  const presentes = await Presente.find({ comprado: false });
+  const presentes = await Presente.find();
   res.json(presentes);
 });
 
-/* MARCAR PRESENTE COMO COMPRADO */
+/**
+ * MARCAR PRESENTE COMO COMPRADO
+ */
 router.post("/:id/comprar", async (req, res) => {
-  await Presente.findByIdAndUpdate(req.params.id, {
-    comprado: true
-  });
-  res.json({ sucesso: true });
-});
+  const { id } = req.params;
 
-/* CRIAR PRESENTES (APENAS UMA VEZ) */
-router.post("/", async (req, res) => {
-  const presente = new Presente(req.body);
+  const presente = await Presente.findById(id);
+
+  if (!presente) {
+    return res.status(404).json({ erro: "Presente não encontrado" });
+  }
+
+  if (!presente.disponivel) {
+    return res.status(400).json({ erro: "Presente já foi comprado" });
+  }
+
+  presente.disponivel = false;
+  presente.compradoEm = new Date();
+
   await presente.save();
-  res.json(presente);
+
+  res.json({ mensagem: "Presente marcado como comprado" });
 });
 
 export default router;
