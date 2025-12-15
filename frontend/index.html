@@ -115,76 +115,45 @@
 
     <!-- BOTÃO PARA ABRIR A LISTA -->
 <section class="presentes-section">
-    <button class="btn blue" onclick="abrirPresentes()">Ver Lista de Presentes</button>
+    <button class="btn blue" onclick="abrirPresentes()">
+        Ver Lista de Presentes
+    </button>
 </section>
 
-<!-- ======== LISTA DE PRESENTES ======== -->
-
-<div id="gift-grid" class="gift-grid"></div>
-<script src="js/presentes.js"></script>
-
+<!-- ======== LISTA DE PRESENTES (DINÂMICA) ======== -->
 <section id="pagina-presentes" class="pagina-oculta">
 
     <h2>Lista de Presentes</h2>
-    <p>Escolha um presente e contribua com o valor sugerido via PIX 💙</p>
+    <p>Escolha um presente especial para nos ajudar a construir nossa vida juntos 💙</p>
 
-    <div class="gift-grid">
+    <!-- O BACKEND VAI RENDERIZAR AQUI -->
+    <div id="gift-grid" class="gift-grid"></div>
 
-        <!-- Presente 1 -->
-        <div class="gift-card">
-            <img src="img/presente1.jpg" alt="Presente 1">
-            <h3>Conjunto de Toalhas</h3>
-            <p class="preco">R$ 120,00</p>
-            <button class="btn" onclick="presentear('Conjunto de Toalhas', 120)">Presentear</button>
-        </div>
-
-        <!-- Presente 2 -->
-        <div class="gift-card">
-            <img src="img/presente2.jpg" alt="Presente 2">
-            <h3>Jogo de Panelas</h3>
-            <p class="preco">R$ 230,00</p>
-            <button class="btn" onclick="presentear('Jogo de Panelas', 230)">Presentear</button>
-        </div>
-
-        <!-- Presente 3 -->
-        <div class="gift-card">
-            <img src="img/presente3.jpg" alt="Presente 3">
-            <h3>AirFryer</h3>
-            <p class="preco">R$ 380,00</p>
-            <button class="btn" onclick="presentear('AirFryer', 380)">Presentear</button>
-        </div>
-
-        <!-- PIX Livre -->
-        <div class="gift-card">
-            <img src="img/pix.jpg" alt="PIX Livre">
-            <h3>PIX Livre</h3>
-            <p class="preco">Qualquer valor</p>
-            <button class="btn" onclick="presentear('Pix Livre', 0)">Fazer PIX</button>
-        </div>
-
-    </div>
-
-    <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>
+    <button class="btn purple voltar-btn" onclick="fecharPresentes()">
+        Voltar
+    </button>
 </section>
+
 
 <!-- ======== MODAL PIX ======== -->
 <div id="pix-modal" class="pix-modal">
-
     <div class="pix-box">
 
-        <h3 id="pix-titulo">Título</h3>
+        <h3 id="pix-titulo"></h3>
         <p id="pix-valor"></p>
 
         <p><strong>Chave PIX:</strong></p>
-
-        <!-- SUA CHAVE PIX AQUI -->
-        <p id="pix-chave" class="pix-chave">e218f0f0-e484-405a-b489-9e264e9cd631</p>
+        <p id="pix-chave" class="pix-chave">
+            e218f0f0-e484-405a-b489-9e264e9cd631
+        </p>
 
         <button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
-        <button class="btn purple fechar" onclick="fecharModal()">Fechar</button>
+        <button class="btn purple" onclick="fecharModal()">Fechar</button>
     </div>
-
 </div>
+
+<!-- SCRIPT DOS PRESENTES (BACKEND) -->
+<script src="js/presentes.js"></script>
 
 
         <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>

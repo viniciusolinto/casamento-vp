@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import conectarBanco from "./config/database.js";
 import presentesRoutes from "./routes/presentes.js";
+import dotenv from "dotenv";
+
 
 dotenv.config();
 

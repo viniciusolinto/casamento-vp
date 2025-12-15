@@ -7,7 +7,7 @@ const router = express.Router();
  * LISTAR PRESENTES
  */
 router.get("/", async (req, res) => {
-  const presentes = await Presente.find();
+  const presentes = await Presente.find({ disponivel: true });
   res.json(presentes);
 });
 
