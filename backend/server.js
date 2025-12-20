@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import conectarBanco from "./config/database.js";
 import presentesRoutes from "./routes/presentes.js";
+import carrinhoRoutes from "./routes/carrinho.js";
+
 import dotenv from "dotenv";
 
 
@@ -15,6 +17,8 @@ app.use(express.json());
 conectarBanco();
 
 app.use("/presentes", presentesRoutes);
+app.use("/carrinho", carrinhoRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

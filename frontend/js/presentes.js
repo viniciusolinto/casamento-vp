@@ -1,64 +1,47 @@
 const API_URL = "https://casamento-vp.onrender.com";
 
-/* ===============================
-   CARREGAR PRESENTES
-================================*/
-async function carregarPresentes() {
-  try {
-    const res = await fetch(`${API_URL}/presentes`);
-    const presentes = await res.json();
+function adicionarCarrinho(id) {
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    const grid = document.getElementById("gift-grid");
-    grid.innerHTML = "";
-
-    if (presentes.length === 0) {
-      grid.innerHTML = "<p>Nenhum presente disponível no momento 💙</p>";
-      return;
-    }
-
-    presentes.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "gift-card";
-
-      card.innerHTML = `
-        <img src="${p.imagem}" alt="${p.nome}">
-        <h3>${p.nome}</h3>
-        <p class="preco">R$ ${p.preco.toFixed(2)}</p>
-
-        ${
-          p.disponivel
-            ? `
-              <button class="btn" onclick="comprarPresente('${p._id}')">
-                Presentear via PIX
-              </button>
-              <a class="btn blue" href="${p.linkLoja}" target="_blank">
-                Comprar na loja
-              </a>
-            `
-            : `<span class="indisponivel">Já presenteado 💙</span>`
-        }
-      `;
-
-      grid.appendChild(card);
-    });
-
-  } catch (erro) {
-    console.error("Erro ao carregar presentes:", erro);
+  if (!carrinho.includes(id)) {
+    carrinho.push(id);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    alert("Presente adicionado ao carrinho 💙");
   }
 }
 
-/* ===============================
-   MARCAR PRESENTE COMO COMPRADO
-================================*/
-async function comprarPresente(id) {
-  const confirmar = confirm("Deseja marcar este presente como comprado?");
-  if (!confirmar) return;
+async function carregarPresentes() {
+  const res = await fetch(`${API_URL}/presentes`);
+  const presentes = await res.json();
 
-  await fetch(`${API_URL}/presentes/${id}/comprar`, {
-    method: "POST"
+  const grid = document.getElementById("gift-grid");
+  grid.innerHTML = "";
+
+  if (presentes.length === 0) {
+    grid.innerHTML = "<p>Nenhum presente disponível 💙</p>";
+    return;
+  }
+
+  presentes.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "gift-card";
+
+    card.innerHTML = `
+      <img src="${p.imagem}">
+      <h3>${p.nome}</h3>
+      <p>R$ ${p.preco.toFixed(2)}</p>
+
+      <button onclick="adicionarCarrinho('${p._id}')">
+        Adicionar ao Carrinho
+      </button>
+
+      <a href="${p.linkLoja}" target="_blank">
+        Comprar na loja
+      </a>
+    `;
+
+    grid.appendChild(card);
   });
-
-  carregarPresentes();
 }
 
 carregarPresentes();

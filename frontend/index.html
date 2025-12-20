@@ -112,54 +112,15 @@
         </a>
     </section>
 
-
-    <!-- BOTÃO PARA ABRIR A LISTA -->
-<section class="presentes-section">
-    <button class="btn blue" onclick="abrirPresentes()">
-        Ver Lista de Presentes
-    </button>
-</section>
-
-<!-- ======== LISTA DE PRESENTES (DINÂMICA) ======== -->
-<section id="pagina-presentes" class="pagina-oculta">
-
-    <h2>Lista de Presentes</h2>
-    <p>Escolha um presente especial para nos ajudar a construir nossa vida juntos 💙</p>
-
-    <!-- O BACKEND VAI RENDERIZAR AQUI -->
-    <div id="gift-grid" class="gift-grid"></div>
-
-    <button class="btn purple voltar-btn" onclick="fecharPresentes()">
-        Voltar
-    </button>
-</section>
-
-
-<!-- ======== MODAL PIX ======== -->
-<div id="pix-modal" class="pix-modal">
-    <div class="pix-box">
-
-        <h3 id="pix-titulo"></h3>
-        <p id="pix-valor"></p>
-
-        <p><strong>Chave PIX:</strong></p>
-        <p id="pix-chave" class="pix-chave">
-            e218f0f0-e484-405a-b489-9e264e9cd631
-        </p>
-
-        <button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
-        <button class="btn purple" onclick="fecharModal()">Fechar</button>
-    </div>
-</div>
-
-<!-- SCRIPT DOS PRESENTES (BACKEND) -->
-<script src="js/presentes.js"></script>
-
-
-        <button class="btn purple voltar-btn" onclick="fecharPresentes()">Voltar</button>
+<!-- ============================== -->
+<!-- BOTÃO LISTA DE PRESENTES -->
+<!-- ============================== -->
+    <section class="presentes-section">
+    <a href="presentes.html" class="btn blue">
+        💙 Ver Lista de Presentes
+    </a>
     </section>
 
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
