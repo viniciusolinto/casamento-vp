@@ -4,53 +4,47 @@ import Presente from "../models/presente.js";
 const router = express.Router();
 
 /**
- * LISTAR PRESENTES DISPONÍVEIS
+ * LISTAR PRESENTES (COM FILTRO DE CATEGORIA)
  */
 router.get("/", async (req, res) => {
-  const presentes = await Presente.find({ disponivel: true });
-  res.json(presentes);
+  try {
+    const { categoria } = req.query;
+
+    const filtro = {
+      disponivel: true
+    };
+
+    if (categoria && categoria !== "Todos") {
+      filtro.categoria = categoria;
+    }
+
+    const presentes = await Presente.find(filtro);
+    res.json(presentes);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ erro: "Erro ao buscar presentes" });
+  }
 });
 
 /**
- * COMPRAR UM PRESENTE (PIX UNITÁRIO)
+ * PAGAR UMA COTA
  */
-router.post("/:id/comprar", async (req, res) => {
-  const { id } = req.params;
+router.post("/:id/pagar-cota", async (req, res) => {
+  const presente = await Presente.findById(req.params.id);
 
-  const presente = await Presente.findById(id);
-
-  if (!presente) {
-    return res.status(404).json({ erro: "Presente não encontrado" });
+  if (!presente || presente.cotasDisponiveis <= 0) {
+    return res.status(400).json({ erro: "Presente indisponível" });
   }
 
-  if (!presente.disponivel) {
-    return res.status(400).json({ erro: "Presente já comprado" });
+  presente.cotasDisponiveis -= 1;
+
+  if (presente.cotasDisponiveis === 0) {
+    presente.disponivel = false;
   }
 
-  presente.disponivel = false;
-  presente.compradoEm = new Date();
   await presente.save();
-
-  res.json({ mensagem: "Presente comprado com sucesso" });
+  res.json({ sucesso: true });
 });
-
-/**
- * FINALIZAR CARRINHO (VÁRIOS PRESENTES)
- */
-router.post("/finalizar", async (req, res) => {
-  const { ids } = req.body;
-
-  if (!ids || !ids.length) {
-    return res.status(400).json({ erro: "Carrinho vazio" });
-  }
-
-  await Presente.updateMany(
-    { _id: { $in: ids }, disponivel: true },
-    { $set: { disponivel: false, compradoEm: new Date() } }
-  );
-
-  res.json({ mensagem: "Presentes do carrinho marcados como comprados" });
-});
-
 
 export default router;

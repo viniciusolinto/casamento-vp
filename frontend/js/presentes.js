@@ -1,25 +1,10 @@
 const API_URL = "https://casamento-vp.onrender.com";
-let carrinhoId = null;
 
-/* ===============================
-   CRIAR CARRINHO AO ENTRAR
-================================ */
-async function criarCarrinho() {
-  const res = await fetch(`${API_URL}/carrinho`, { method: "POST" });
-  const carrinho = await res.json();
-  carrinhoId = carrinho._id;
-}
+async function carregarPresentes(categoria = "") {
+  let url = `${API_URL}/presentes`;
+  if (categoria) url += `?categoria=${categoria}`;
 
-async function adicionarCarrinho(presenteId) {
-  await fetch(`${API_URL}/carrinho/${carrinhoId}/adicionar/${presenteId}`, {
-    method: "POST"
-  });
-
-  alert("Presente adicionado ao carrinho 💙");
-}
-
-async function carregarPresentes() {
-  const res = await fetch(`${API_URL}/presentes`);
+  const res = await fetch(url);
   const presentes = await res.json();
 
   const grid = document.getElementById("gift-grid");
@@ -32,16 +17,38 @@ async function carregarPresentes() {
     card.innerHTML = `
       <img src="${p.imagem}">
       <h3>${p.nome}</h3>
-      <p>R$ ${p.preco.toFixed(2)}</p>
 
-      <button onclick="adicionarCarrinho('${p._id}')">
-        Adicionar ao Carrinho
-      </button>
+      <p>Total: R$ ${p.valorTotal.toFixed(2)}</p>
+      <p>Cota: R$ ${p.valorCota.toFixed(2)}</p>
+      <p>Cotas restantes: ${p.cotasDisponiveis}</p>
+
+      ${
+        p.cotasDisponiveis > 0
+          ? `<button onclick="pagarCota('${p._id}', ${p.valorCota})">
+              Pagar uma cota via PIX
+            </button>`
+          : `<span class="indisponivel">Presente completo 💙</span>`
+      }
     `;
 
     grid.appendChild(card);
   });
 }
 
-/* INICIALIZA */
-criarCarrinho().then(carregarPresentes);
+async function pagarCota(id, valor) {
+  await fetch(`${API_URL}/presentes/${id}/pagar-cota`, {
+    method: "POST"
+  });
+
+  abrirModalPix(valor);
+  carregarPresentes();
+}
+
+function abrirModalPix(valor) {
+  document.getElementById("pix-valor").textContent =
+    "Valor da cota: R$ " + valor.toFixed(2);
+
+  document.getElementById("pix-modal").style.display = "flex";
+}
+
+carregarPresentes();
