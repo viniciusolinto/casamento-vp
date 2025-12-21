@@ -1,48 +1,30 @@
-const API_URL = "https://casamento-vp.onrender.com";
+const API = "https://casamento-vp.onrender.com";
 
-let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+async function carregarCarrinho() {
+  const res = await fetch(`${API}/carrinho/${sessionId}`);
+  const carrinho = await res.json();
 
-function renderCarrinho() {
-  const list = document.getElementById("cart-list");
-  const totalEl = document.getElementById("total");
+  const grid = document.getElementById("carrinho-grid");
+  grid.innerHTML = "";
 
-  list.innerHTML = "";
-  let total = 0;
-
-  carrinho.forEach(p => {
-    total += p.preco;
-
-    const div = document.createElement("div");
-    div.className = "gift-card";
-    div.innerHTML = `
-      <h3>${p.nome}</h3>
-      <p>R$ ${p.preco.toFixed(2)}</p>
+  carrinho.itens.forEach(p => {
+    grid.innerHTML += `
+      <div class="gift-card">
+        <img src="${p.imagem}">
+        <h3>${p.nome}</h3>
+        <p>R$ ${p.preco.toFixed(2)}</p>
+      </div>
     `;
-
-    list.appendChild(div);
   });
-
-  totalEl.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
 }
 
 async function finalizarCompra() {
-  if (!carrinho.length) {
-    alert("Carrinho vazio");
-    return;
-  }
-
-  const ids = carrinho.map(p => p._id);
-
-  await fetch(`${API_URL}/presentes/finalizar`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ids })
+  await fetch(`${API}/carrinho/${sessionId}/finalizar`, {
+    method: "POST"
   });
 
   alert("Presentes reservados! Agora faça o PIX 💙");
-
-  localStorage.removeItem("carrinho");
-  window.location.href = "index.html";
+  location.href = "index.html";
 }
 
-renderCarrinho();
+carregarCarrinho();

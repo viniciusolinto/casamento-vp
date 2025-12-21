@@ -1,15 +1,16 @@
 import mongoose from "mongoose";
 
 const CarrinhoSchema = new mongoose.Schema({
-  itens: [
+  presentes: [
     {
-      presenteId: mongoose.Schema.Types.ObjectId,
-      nome: String,
-      preco: Number
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Presente"
     }
   ],
-  criadoEm: { type: Date, default: Date.now },
-  finalizado: { type: Boolean, default: false }
+  criadoEm: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 export default mongoose.model("Carrinho", CarrinhoSchema);

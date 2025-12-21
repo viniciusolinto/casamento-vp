@@ -1,13 +1,21 @@
 const API_URL = "https://casamento-vp.onrender.com";
+let carrinhoId = null;
 
-function adicionarCarrinho(id) {
-  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+/* ===============================
+   CRIAR CARRINHO AO ENTRAR
+================================ */
+async function criarCarrinho() {
+  const res = await fetch(`${API_URL}/carrinho`, { method: "POST" });
+  const carrinho = await res.json();
+  carrinhoId = carrinho._id;
+}
 
-  if (!carrinho.includes(id)) {
-    carrinho.push(id);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    alert("Presente adicionado ao carrinho 💙");
-  }
+async function adicionarCarrinho(presenteId) {
+  await fetch(`${API_URL}/carrinho/${carrinhoId}/adicionar/${presenteId}`, {
+    method: "POST"
+  });
+
+  alert("Presente adicionado ao carrinho 💙");
 }
 
 async function carregarPresentes() {
@@ -16,11 +24,6 @@ async function carregarPresentes() {
 
   const grid = document.getElementById("gift-grid");
   grid.innerHTML = "";
-
-  if (presentes.length === 0) {
-    grid.innerHTML = "<p>Nenhum presente disponível 💙</p>";
-    return;
-  }
 
   presentes.forEach(p => {
     const card = document.createElement("div");
@@ -34,14 +37,11 @@ async function carregarPresentes() {
       <button onclick="adicionarCarrinho('${p._id}')">
         Adicionar ao Carrinho
       </button>
-
-      <a href="${p.linkLoja}" target="_blank">
-        Comprar na loja
-      </a>
     `;
 
     grid.appendChild(card);
   });
 }
 
-carregarPresentes();
+/* INICIALIZA */
+criarCarrinho().then(carregarPresentes);

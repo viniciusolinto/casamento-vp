@@ -4,46 +4,42 @@ import Presente from "../models/presente.js";
 
 const router = express.Router();
 
-/* Criar carrinho */
-router.post("/criar", async (req, res) => {
-  const carrinho = await Carrinho.create({ itens: [] });
+/* ===============================
+   CRIAR CARRINHO
+================================ */
+router.post("/", async (req, res) => {
+  const carrinho = await Carrinho.create({ presentes: [] });
   res.json(carrinho);
 });
 
-/* Adicionar item */
-router.post("/:id/adicionar/:presenteId", async (req, res) => {
-  const { id, presenteId } = req.params;
+/* ===============================
+   ADICIONAR PRESENTE AO CARRINHO
+================================ */
+router.post("/:carrinhoId/adicionar/:presenteId", async (req, res) => {
+  const { carrinhoId, presenteId } = req.params;
 
+  const carrinho = await Carrinho.findById(carrinhoId);
   const presente = await Presente.findById(presenteId);
-  if (!presente || !presente.disponivel) {
-    return res.status(400).json({ erro: "Presente indisponível" });
+
+  if (!carrinho || !presente) {
+    return res.status(404).json({ erro: "Carrinho ou presente não encontrado" });
   }
 
-  const carrinho = await Carrinho.findById(id);
-  carrinho.itens.push({
-    presenteId,
-    nome: presente.nome,
-    preco: presente.preco
-  });
-
+  carrinho.presentes.push(presente._id);
   await carrinho.save();
-  res.json(carrinho);
+
+  res.json({ mensagem: "Presente adicionado ao carrinho" });
 });
 
-/* Finalizar carrinho */
-router.post("/:id/finalizar", async (req, res) => {
-  const carrinho = await Carrinho.findById(req.params.id);
+/* ===============================
+   VER CARRINHO
+================================ */
+router.get("/:carrinhoId", async (req, res) => {
+  const carrinho = await Carrinho
+    .findById(req.params.carrinhoId)
+    .populate("presentes");
 
-  for (const item of carrinho.itens) {
-    await Presente.findByIdAndUpdate(item.presenteId, {
-      disponivel: false
-    });
-  }
-
-  carrinho.finalizado = true;
-  await carrinho.save();
-
-  res.json({ mensagem: "Carrinho finalizado" });
+  res.json(carrinho);
 });
 
 export default router;

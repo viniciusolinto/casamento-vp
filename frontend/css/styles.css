@@ -264,3 +264,130 @@ section {
 /* ========================
    FIM DO CSS
 ======================== */
+
+/* ========================
+   PÁGINAS DE PRESENTES E CARRINHO
+======================== */
+
+/* Título principal das páginas internas */
+.page-title {
+    font-size: 36px;
+    color: #002F6C;
+    margin-bottom: 10px;
+}
+
+/* Texto de apoio */
+.page-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Botão secundário (voltar / ver carrinho) */
+.btn.secundario {
+    background: #f0f0f0;
+    color: #002F6C;
+    border: 2px solid #002F6C;
+}
+
+.btn.secundario:hover {
+    background: #e4e9f3;
+}
+
+/* ========================
+   CARRINHO
+======================== */
+
+.carrinho-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.carrinho-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.carrinho-item img {
+    width: 100px;
+    border-radius: 12px;
+}
+
+.carrinho-info {
+    flex: 1;
+    text-align: left;
+}
+
+.carrinho-info h3 {
+    margin: 0;
+    color: #002F6C;
+}
+
+.carrinho-info p {
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+/* Botão remover do carrinho */
+.btn.remover {
+    background: #c0392b;
+}
+
+.btn.remover:hover {
+    opacity: 0.85;
+}
+
+/* ========================
+   FINALIZAÇÃO
+======================== */
+
+.finalizar-box {
+    margin-top: 40px;
+    padding: 30px;
+    background: #f0f8ff;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.finalizar-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn.finalizar {
+    font-size: 22px;
+    padding: 16px 40px;
+}
+
+/* ========================
+   STATUS DO PRESENTE
+======================== */
+
+.indisponivel {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: #999;
+}
+
+/* ========================
+   RESPONSIVO
+======================== */
+
+@media (max-width: 600px) {
+    .carrinho-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carrinho-item img {
+        width: 80px;
+    }
+}
