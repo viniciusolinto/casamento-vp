@@ -54,6 +54,7 @@ function abrirModalPix(valor) {
 carregarPresentes();
 
 function toggleMenu() {
-  document.querySelector(".menu").classList.toggle("ativo");
+    document.getElementById("menuCategorias").classList.toggle("ativo");
 }
+
 

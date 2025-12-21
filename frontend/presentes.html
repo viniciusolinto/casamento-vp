@@ -2,24 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Presentes</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- MENU DE CATEGORIAS (MESMO ESTILO, À ESQUERDA) -->
-<div class="menu">
-  <span class="menu-icone">⋮</span>
+  <div class="menu" id="menuCategorias">
+    <div class="menu-botao" onclick="toggleMenu()">☰</div>
 
-  <div class="menu-opcoes">
-    <button onclick="filtrar('')">Todos</button>
-    <button onclick="filtrar('Cozinha')">Cozinha</button>
-    <button onclick="filtrar('Sala')">Sala</button>
-    <button onclick="filtrar('Quarto')">Quarto</button>
-    <button onclick="filtrar('Eletrodomesticos')">Eletrodomésticos</button>
-    <button onclick="filtrar('Informatica')">Informática</button>
-  </div>
+    <div class="menu-opcoes">
+        <button onclick="filtrar('')">Todos</button>
+        <button onclick="filtrar('Cozinha')">Cozinha</button>
+        <button onclick="filtrar('Sala')">Sala</button>
+        <button onclick="filtrar('Quarto')">Quarto</button>
+        <button onclick="filtrar('Eletrodomesticos')">Eletrodomésticos</button>
+        <button onclick="filtrar('Informatica')">Informática</button>
+    </div>
 </div>
+
 
 
 

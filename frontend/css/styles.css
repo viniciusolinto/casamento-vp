@@ -364,99 +364,58 @@ section {
     margin-bottom: 20px;
 }
 
+/* ========================
+   PÁGINA LISTA DE PRESENTES
+======================== */
+
+body {
+    overflow-x: hidden;
+}
 
 /* ========================
    MENU DE CATEGORIAS
 ======================== */
 
 .menu {
-  position: fixed;
-  top: 20px;
-  left: 20px; /* ← mudou para a esquerda */
-  z-index: 1000;
-}
-
-.menu-icone {
-  font-size: 26px;
-  cursor: pointer;
-  padding: 14px;
-  border-radius: 50%;
-  background: #002F6C;
-  color: white;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  /* área de clique maior */
-  width: 32px;
-  height: 32px;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-}
-
-.menu-opcoes {
-  position: absolute;
-  top: 58px;
-  left: 0;
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  padding: 10px;
-  min-width: 200px;
-
-  display: none;
-}
-
-/* abre ao passar o mouse ou tocar */
-.menu:hover .menu-opcoes {
-  display: block;
-}
-
-.menu-opcoes button {
-    background: #f0f4ff;
-    border: none;
-    padding: 12px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #002F6C;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.menu-opcoes button:hover {
-    background: #002F6C;
-    color: white;
-}
-
-/* ========================
-   MENU DE CATEGORIAS (RESPONSIVO)
-======================== */
-
-.menu {
     position: fixed;
-    top: 20px;
-    left: 20px; /* ← lado esquerdo */
-    z-index: 1000;
-    font-size: 28px;
-    cursor: pointer;
-    user-select: none;
+    top: 18px;
+    left: 18px;
+    z-index: 1200;
 }
 
-/* Caixa do menu */
+.menu-botao {
+    width: 52px;
+    height: 52px;
+    background: #002F6C;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform 0.2s;
+}
+
+.menu-botao:active {
+    transform: scale(0.95);
+}
+
+/* MENU ABERTO */
 .menu-opcoes {
     position: absolute;
-    top: 45px;
+    top: 64px;
     left: 0;
-    background: white;
+    background: #ffffff;
     border-radius: 18px;
+    padding: 12px;
+    min-width: 240px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-    padding: 10px;
     display: none;
-    min-width: 220px;
 }
 
-/* Mostrar menu ao clicar */
+/* Classe ativada via JS */
 .menu.ativo .menu-opcoes {
     display: block;
 }
@@ -464,44 +423,133 @@ section {
 /* Botões do menu */
 .menu-opcoes button {
     width: 100%;
-    padding: 14px 18px;
-    margin: 6px 0;
-    font-size: 18px;
-    font-weight: 600;
     border: none;
-    border-radius: 14px;
     background: #f2f5ff;
     color: #002F6C;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 8px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: 0.2s;
 }
 
-/* Área de toque maior (celular) */
-.menu-opcoes button:active {
-    background: #dfe7ff;
+.menu-opcoes button:last-child {
+    margin-bottom: 0;
+}
+
+.menu-opcoes button:hover {
+    background: #002F6C;
+    color: #fff;
 }
 
 /* ========================
-   AJUSTES MOBILE
+   GRID DE PRESENTES
+======================== */
+
+.gift-grid {
+    margin-top: 40px;
+}
+
+/* ========================
+   CARDS COM COTAS
+======================== */
+
+.gift-card p {
+    font-size: 16px;
+    margin: 6px 0;
+}
+
+/* Botão PIX */
+.gift-card button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border-radius: 30px;
+    background: #002F6C;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.gift-card button:hover {
+    opacity: 0.9;
+}
+
+/* ========================
+   MODAL PIX
+======================== */
+
+.pix-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.pix-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+/* ========================
+   RESPONSIVO MOBILE
 ======================== */
 
 @media (max-width: 600px) {
 
+    h2 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
     .menu {
-        font-size: 32px;
-        top: 15px;
-        left: 15px;
+        top: 14px;
+        left: 14px;
+    }
+
+    .menu-botao {
+        width: 56px;
+        height: 56px;
+        font-size: 28px;
     }
 
     .menu-opcoes {
-        min-width: 260px;
+        min-width: 280px;
     }
 
     .menu-opcoes button {
-        font-size: 20px;
+        font-size: 18px;
+        padding: 16px;
+    }
+
+    .gift-card {
         padding: 18px;
     }
+
+    .pix-box {
+        padding: 25px;
+    }
 }
+
+
+
+
 
 
 
