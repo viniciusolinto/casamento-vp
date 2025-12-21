@@ -15,21 +15,30 @@ async function carregarPresentes(categoria = "") {
     card.className = "gift-card";
 
     card.innerHTML = `
-      <img src="${p.imagem}">
-      <h3>${p.nome}</h3>
+  <img src="${p.imagem}">
+  <h3>${p.nome}</h3>
 
-      <p>Total: R$ ${p.valorTotal.toFixed(2)}</p>
-      <p>Cota: R$ ${p.valorCota.toFixed(2)}</p>
-      <p>Cotas restantes: ${p.cotasDisponiveis}</p>
+  <p>Total: R$ ${p.valorTotal.toFixed(2)}</p>
+  <p>Cota: R$ ${p.valorCota.toFixed(2)}</p>
+  <p>Cotas restantes: ${p.cotasDisponiveis}</p>
 
-      ${
-        p.cotasDisponiveis > 0
-          ? `<button onclick="pagarCota('${p._id}', ${p.valorCota})">
-              Pagar uma cota via PIX
-            </button>`
-          : `<span class="indisponivel">Presente completo 💙</span>`
-      }
-    `;
+  ${
+    p.cotasDisponiveis > 0
+      ? `
+        <div class="botoes-card">
+          <button class="btn btn-pix" onclick="pagarCota('${p._id}', ${p.valorCota})">
+            💙 Pagar cota via PIX
+          </button>
+
+          <a href="${p.linkLoja}" target="_blank" class="btn btn-loja">
+            🛒 Comprar no site
+          </a>
+        </div>
+      `
+      : `<span class="indisponivel">Presente completo 💙</span>`
+  }
+`;
+
 
     grid.appendChild(card);
   });

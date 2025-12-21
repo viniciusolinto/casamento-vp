@@ -547,6 +547,67 @@ body {
     }
 }
 
+/* ========================
+   BOTÕES DOS CARDS DE PRESENTES
+======================== */
+
+.botoes-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+/* Botão PIX */
+.btn-pix {
+    background: #002F6C;
+    color: #fff;
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+    text-align: center;
+}
+
+.btn-pix:hover {
+    background: #001f48;
+}
+
+/* Botão Loja */
+.btn-loja {
+    background: #1e88e5;
+    color: #fff;
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.btn-loja:hover {
+    background: #1565c0;
+}
+
+/* ========================
+   RESPONSIVO — MOBILE
+======================== */
+
+@media (max-width: 600px) {
+    .botoes-card {
+        gap: 14px;
+    }
+
+    .btn-pix,
+    .btn-loja {
+        font-size: 17px;
+        padding: 16px;
+    }
+}
+
 
 
 
