@@ -429,6 +429,79 @@ section {
     color: white;
 }
 
+/* ========================
+   MENU DE CATEGORIAS (RESPONSIVO)
+======================== */
+
+.menu {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* ← lado esquerdo */
+    z-index: 1000;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Caixa do menu */
+.menu-opcoes {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    padding: 10px;
+    display: none;
+    min-width: 220px;
+}
+
+/* Mostrar menu ao clicar */
+.menu.ativo .menu-opcoes {
+    display: block;
+}
+
+/* Botões do menu */
+.menu-opcoes button {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+    background: #f2f5ff;
+    color: #002F6C;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* Área de toque maior (celular) */
+.menu-opcoes button:active {
+    background: #dfe7ff;
+}
+
+/* ========================
+   AJUSTES MOBILE
+======================== */
+
+@media (max-width: 600px) {
+
+    .menu {
+        font-size: 32px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .menu-opcoes {
+        min-width: 260px;
+    }
+
+    .menu-opcoes button {
+        font-size: 20px;
+        padding: 18px;
+    }
+}
 
 
 
