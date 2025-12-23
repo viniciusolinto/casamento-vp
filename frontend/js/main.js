@@ -91,7 +91,4 @@ function fecharModal() {
     document.getElementById("pix-modal").style.display = "none";
 }
 
-function toggleMenu() {
-    document.getElementById("menu").classList.toggle("aberto");
-}
 

@@ -4,23 +4,12 @@ import Presente from "../models/presente.js";
 const router = express.Router();
 
 /**
- * LISTAR PRESENTES (COM FILTRO DE CATEGORIA)
+ * LISTAR TODOS OS PRESENTES
  */
 router.get("/", async (req, res) => {
   try {
-    const { categoria } = req.query;
-
-    const filtro = {
-      disponivel: true
-    };
-
-    if (categoria && categoria !== "Todos") {
-      filtro.categoria = categoria;
-    }
-
-    const presentes = await Presente.find(filtro);
+    const presentes = await Presente.find({ disponivel: true });
     res.json(presentes);
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ erro: "Erro ao buscar presentes" });
