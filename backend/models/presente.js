@@ -1,14 +1,48 @@
 import mongoose from "mongoose";
 
 const PresenteSchema = new mongoose.Schema({
-  nome: String,
-  imagem: String,
+  nome: {
+    type: String,
+    required: true
+  },
 
-  categoria: String, // 🔴 ESSENCIAL
+  linkLoja: {
+    type: String
+  },
 
-  valorTotal: Number,
-  valorCota: Number,
-  cotasDisponiveis: Number
+  imagem: {
+    type: String
+  },
+
+  categoria: {
+    type: String
+  },
+
+  valorTotal: {
+    type: Number,
+    required: true
+  },
+
+  valorCota: {
+    type: Number,
+    required: true
+  },
+
+  // 🔴 AQUI — NOVO CAMPO
+  valorPago: {
+    type: Number,
+    default: 0
+  },
+
+  cotasDisponiveis: {
+    type: Number,
+    required: true
+  },
+
+  disponivel: {
+    type: Boolean,
+    default: true
+  }
 });
 
 export default mongoose.model("Presente", PresenteSchema);

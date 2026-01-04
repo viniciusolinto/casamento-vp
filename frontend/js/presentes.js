@@ -13,7 +13,12 @@ async function carregarPresentes() {
 
     const totalCotas = Math.round(p.valorTotal / p.valorCota);
     const cotasPagas = totalCotas - p.cotasDisponiveis;
-    const percentual = Math.round((cotasPagas / totalCotas) * 100);
+
+   const percentual = Math.min(
+   Math.round((p.valorPago / p.valorTotal) * 100),
+   100
+  );
+
 
     card.innerHTML = `
       <img src="${p.imagem}">
